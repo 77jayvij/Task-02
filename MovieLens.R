@@ -212,7 +212,8 @@ qplot(lambdas, lambda_rmses)
 
 # Pull the lambda value corresponding to the minimum RMSE
 lambda <- lambdas[which.min(lambda_rmses)]
-lambda # Value of lambda giving minimum RMSE is 5
+lambda 
+# Value of lambda giving minimum RMSE is 5
 
 # RMSE values for different models
 rmse_results <- bind_rows(rmse_results,  
@@ -224,6 +225,7 @@ rmse_results %>% knitr::kable()
 #|Just the average                                           | 1.0612018|
 #|Movie + User Effects Model + genre effect model            | 0.8649472|
 #|Regularized Movie + User Effect Model + genre effect model | 0.8644559|
+
   
 # Regularised value for user, movie and genre effect
  
@@ -242,7 +244,7 @@ rmse_results %>% knitr::kable()
     select(title, b_i, b_u, b_gen, n) %>% 
     slice(1:10) %>% 
     knitr::kable()
-# |title                                         |       b_i|       b_u|   b_gen|    n|
+#|title                                         |       b_i|       b_u|   b_gen|    n|
 #|:---------------------------------------------|---------:|---------:|-------:|----:|
 #|Shawshank Redemption, The (1994)              | 0.9424978| 0.0001682| 0.0e+00| 3111|
 #|Godfather, The (1972)                         | 0.9026465| 0.0002542| 1.0e-07| 2067|
@@ -254,6 +256,7 @@ rmse_results %>% knitr::kable()
 #|Third Man, The (1949)                         | 0.7976163| 0.0013419| 2.3e-06|  298|
 #|Double Indemnity (1944)                       | 0.7965030| 0.0018446| 4.3e-06|  249|
 #|Paths of Glory (1957)                         | 0.7937292| 0.0025182| 8.0e-06|  207|
+
 
 validation %>%
     dplyr::count(movieId) %>% 
@@ -276,7 +279,7 @@ validation %>%
 #|Carnosaur 3: Primal Species (1996)                   | -2.258187| -0.1546703| -0.0105939| 11|
 #|Yu-Gi-Oh! (2004)                                     | -2.147026| -0.1262957| -0.0074292| 12|
 
-# This is a more reliable prediction as ratings are learned from those movies with larger number of 
+# This is a more reliable prediction as ratings are predicted from those movies with larger number of 
 # available ratings.
 
 # The predictions looks acceptable. Top movies are indeed good movies. So the low rated ones.
